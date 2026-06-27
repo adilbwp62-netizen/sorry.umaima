@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sorry Umaima</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff5f9e,#ff9a9e,#fad0c4);
+overflow:hidden;
+}
+
+.box{
+text-align:center;
+color:white;
+z-index:2;
+padding:20px;
+}
+
+h1{
+font-size:60px;
+animation:zoom 1s infinite alternate;
+}
+
+#text{
+font-size:25px;
+margin-top:25px;
+line-height:40px;
+white-space:pre-line;
+}
+
+.heart{
+position:absolute;
+bottom:-50px;
+color:red;
+animation:fly linear infinite;
+}
+
+@keyframes fly{
+0%{
+transform:translateY(0) scale(1);
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) scale(1.8);
+opacity:0;
+}
+}
+
+@keyframes zoom{
+from{transform:scale(1);}
+to{transform:scale(1.15);}
+}
+</style>
+
+</head>
+<body>
+
+<div class="box">
+<h1>🥺 SORRY UMAIMA ❤️</h1>
+<div id="text"></div>
+</div>
+
+<script>
+
+let message=`Umaima... 🥺
+
+Main dil se aap se maafi mangta hoon.
+
+Mujh se jo bhi ghalti hui,
+us ka mujhe bohat afsos hai.
+
+Mera irada kabhi bhi
+aap ka dil dukhane ka nahi tha.
+
+Please mujhe maaf kar dijiye.
+
+❤️ I Am Really Sorry ❤️`;
+
+let i=0;
+
+function typing(){
+if(i<message.length){
+document.getElementById("text").innerHTML+=message.charAt(i);
+i++;
+setTimeout(typing,60);
+}
+}
+
+typing();
+
+setInterval(function(){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*30)+"px";
+
+heart.style.animationDuration=(4+Math.random()*4)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},8000);
+
+},250);
+
+</script>
+
+</body>
+</html>
